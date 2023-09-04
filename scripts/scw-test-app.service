@@ -1,0 +1,10 @@
+[Unit]
+Description=scw-test-app
+Requires=network.target
+[Service]
+Type=simple
+ExecStart=/opt/app/scw-test-app -config config.yml
+WorkingDirectory=/opt/app
+Restart=on-failure
+[Install]
+WantedBy=default.target
