@@ -8,8 +8,8 @@ Start with:
 scw-test-app -config <config file in yaml>
 ```
 
-Configure DB (PostgreSQL) access via /admin/config
-Add "news" posts via /admin/news
+- Configure DB (PostgreSQL) access via /admin/config
+- Add "news" posts via /admin/news
 
 Default config values:
 ----------------------
