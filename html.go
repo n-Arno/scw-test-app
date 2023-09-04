@@ -2,14 +2,14 @@ package main
 
 import (
 	"bytes"
-        "strings"
 	"encoding/json"
 	"net/http"
+	"strings"
 	"text/template"
 )
 
-func multiline(s string) (string) {
-    return strings.Replace(s,"\n","<br/>", -1)
+func multiline(s string) string {
+	return strings.Replace(s, "\n", "<br/>", -1)
 }
 
 var headerHtml = `<html><head><title>scw-test-app</title>
@@ -69,9 +69,9 @@ var errorDbHtml = headerHtml + `<h2>Error!</h2>
 <br/><a href="/admin/config">Go to Admin</a>` + footerHtml
 
 func html(tmpl string, data any) ([]byte, error) {
-        var funcMap = template.FuncMap{
-           "multiline":  multiline,
-        }
+	var funcMap = template.FuncMap{
+		"multiline": multiline,
+	}
 	var b bytes.Buffer
 	t, _ := template.New("").Funcs(funcMap).Parse(tmpl)
 	err := t.Execute(&b, data)
@@ -103,7 +103,7 @@ func UpdateConfigHTML() ([]byte, error) {
 }
 
 func ErrorDbHTML() ([]byte, error) {
-        return html(errorDbHtml, nil)
+	return html(errorDbHtml, nil)
 }
 
 func simpleAnswer(w http.ResponseWriter, httpStatus int, anyStruct any) {

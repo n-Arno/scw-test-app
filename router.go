@@ -12,15 +12,15 @@ import (
 )
 
 func root(w http.ResponseWriter, config *Config) {
-        e, err := ErrorDbHTML()
-        if err != nil {
-                http.Error(w, err.Error(), http.StatusInternalServerError)
-                return
-        }
+	e, err := ErrorDbHTML()
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 	db, err := connect(config)
 	if err != nil {
-                w.WriteHeader(500)
-                w.Write(e)
+		w.WriteHeader(500)
+		w.Write(e)
 		return
 	}
 
@@ -107,12 +107,12 @@ func updateConfig(w http.ResponseWriter, r *http.Request, config *Config, config
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-        config.Db.Port =  r.PostFormValue("db_port")
-        config.Db.Host =  r.PostFormValue("db_host")
-        config.Db.Name =  r.PostFormValue("db_name")
-        config.Db.User =  r.PostFormValue("db_user")
-        config.Db.Pass =  r.PostFormValue("db_pass")
-        WriteConfig(configPath, config)
+	config.Db.Port = r.PostFormValue("db_port")
+	config.Db.Host = r.PostFormValue("db_host")
+	config.Db.Name = r.PostFormValue("db_name")
+	config.Db.User = r.PostFormValue("db_user")
+	config.Db.Pass = r.PostFormValue("db_pass")
+	WriteConfig(configPath, config)
 	w.WriteHeader(200)
 	w.Write(result)
 	return
@@ -166,9 +166,9 @@ func routers(config *Config, configPath string) *mux.Router {
 		adminConfig(w, config)
 	}).Methods("GET")
 
-        adminRouter.HandleFunc("/config", func(w http.ResponseWriter, r *http.Request) {
-                updateConfig(w, r, config, configPath)
-        }).Methods("POST")
+	adminRouter.HandleFunc("/config", func(w http.ResponseWriter, r *http.Request) {
+		updateConfig(w, r, config, configPath)
+	}).Methods("POST")
 
 	adminRouter.HandleFunc("/news", func(w http.ResponseWriter, r *http.Request) {
 		adminNews(w)
