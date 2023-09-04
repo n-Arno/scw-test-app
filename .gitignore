@@ -1,3 +1,5 @@
 scw-test-app-linux-amd64
 scw-test-app
 config.yml
+terraform/.terraform
+terraform/terraform.tfstate
