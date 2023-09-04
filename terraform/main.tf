@@ -1,9 +1,9 @@
 resource "random_password" "db" {
   length  = 10
-  numeric = true
-  upper   = true
-  lower   = true
-  special = true
+  min_numeric = 1
+  min_upper   = 1
+  min_lower   = 1
+  min_special = 1
 }
 
 resource "scaleway_rdb_instance" "main" {

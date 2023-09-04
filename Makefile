@@ -7,4 +7,4 @@ test:
 	go build && ./scw-test-app
 
 clean:
-	go clean
+	- rm -f scw-test-app*

@@ -14,7 +14,7 @@ func multiline(s string) string {
 
 var headerHtml = `<html><head><title>scw-test-app</title>
 <style>` + simpleCss + `
-</style></head><body><header><h1>Demo application</h1></header>
+</style></head><body><header><h1>Weyland-Yutani</h1></header>
 `
 
 var footerHtml = `<footer><p>Source code is <a href="https://github.com/n-Arno/scw-test-app">here</a></p>

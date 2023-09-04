@@ -29,7 +29,7 @@ func root(w http.ResponseWriter, config *Config) {
 	db.Model(&news).Count(&count)
 
 	if count == 0 {
-		db.Create(&News{Title: "Hello", Content: "Welcome to your first news"})
+		db.Create(&News{Title: "USCSS Nostromo to the rescue", Content: "Following the reception of a unidentified signal coming from LV-426, the crew of the Nostromo will investigate the moon surface.\n\nWe are excited about any easter eggs they may find!"})
 	}
 
 	db.Find(&news)
