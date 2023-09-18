@@ -3,3 +3,4 @@ scw-test-app
 config.yml
 terraform/.terraform
 terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
