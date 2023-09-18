@@ -26,3 +26,12 @@ db:
     user: user
     pass: password
 ```
+
+Container version:
+------------------
+
+A simple containerized version is provided plus a example manifest for K8s.
+
+Mount configuration values as `/config.yml` (either via volume or secret).
+
+If using this version, editing the config via the admin panel will result in strange behaviour.
